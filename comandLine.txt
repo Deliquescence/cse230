@@ -1,2 +1,2 @@
-javac -d bin -sourcepath src src\edu\oakland\
+javac -d bin -sourcepath source source\edu\oakland\
 java -classpath bin edu.oakland.

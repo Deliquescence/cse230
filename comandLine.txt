@@ -1,2 +1,6 @@
 javac -d bin -sourcepath source source\edu\oakland\
 java -classpath bin edu.oakland.
+
+
+#From HW directory, not root
+git archive -o hw01.zip HEAD

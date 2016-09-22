@@ -1,6 +1,11 @@
+#Java compite and run
 javac -d bin -sourcepath source source\edu\oakland\
 java -classpath bin edu.oakland.
 
-
+#Create homework zip
 #From HW directory, not root
 git archive -o hw01.zip HEAD
+
+#Tag homework release
+git tag -s hw01
+git push origin hw01

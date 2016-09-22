@@ -1,20 +1,21 @@
 package edu.oakland.homework.hw01;
-public class PrintExample{
+public class PrintExample {
 	//this method is being called
-	public static void PrintLine(){
+	public static void PrintLine() {
+		//Write "This is a line of text." to standard output
 		System.out.println("This is a line of text.");
 	}
-	
+
 	public static void main(String[] args){
-		//print out start here
+		//Write "Start Here" to standard output
 		System.out.println("Start Here");
-		//initial a method called PrintLine 
+		//Call method PrintLine()
 		PrintLine();
-		//print out back to the main
+		//Write "Back to the Main" to standard output
 		System.out.println("Back to the Main");
-		//initial a method classed PrintLine
+		//Call method PrintLine()
 		PrintLine();
-		//print out end here
+		//Write "End Here" to standard output
 		System.out.println("End Here");
 	}
 }

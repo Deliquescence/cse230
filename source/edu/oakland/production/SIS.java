@@ -15,7 +15,7 @@ public class SIS {
 		this.numStudents++;
 	}
 
-	public Student getStudent(String GID) {
+	public Student getStudent(int GID) {
 		for (Student s : students) {
 			if (s.getGrizzlyID() == GID) {
 				return s;

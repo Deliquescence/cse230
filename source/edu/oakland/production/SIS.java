@@ -4,9 +4,15 @@ import edu.oakland.helper.Student;
 
 public class SIS {
 
-	private Student[] students = new Student[6];
+	private Student[] students = new Student[5];
+	private int numStudents = 0;
 
 	public SIS() {
+	}
+
+	public void addStudent(Student student) {
+		this.students[numStudents] = student;
+		numStudents++;
 	}
 
 	public Student getStudent(String GID) {

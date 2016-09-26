@@ -4,10 +4,15 @@ import edu.oakland.helper.Student;
 
 public class SIS {
 
-	private Student[] students = new Student[5];
+	private Student[] students;
 	private int numStudents = 0;
 
 	public SIS() {
+		students = new Student[5];
+	}
+
+	public SIS(int maximumStudents) {
+		students = new Student[maximumStudents];
 	}
 
 	public void addStudent(Student student) {

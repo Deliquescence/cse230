@@ -1,6 +1,7 @@
 package edu.oakland.production;
 
 import edu.oakland.helper.Student;
+import java.util.Arrays;
 
 public class SIS {
 
@@ -8,19 +9,10 @@ public class SIS {
 	private int numStudents = 0;
 
 	/**
-	 * Create a new SIS with the default capacity of 5 students.
+	 * Create a new SIS.
 	 */
 	public SIS() {
-		students = new Student[5];
-	}
-
-	/**
-	 * Create a new SIS with the specified capacity of students.
-	 *
-	 * @param maximumStudents The maximum number of students that will be stored.
-	 */
-	public SIS(int maximumStudents) {
-		students = new Student[maximumStudents];
+		students = new Student[1];
 	}
 
 	/**
@@ -29,6 +21,9 @@ public class SIS {
 	 * @param student The {@link Student} to add.
 	 */
 	public void addStudent(Student student) {
+		if (this.students.length <= this.numStudents) { //No space left
+			this.students = Arrays.copyOf(this.students, numStudents + 1);
+		}
 		this.students[numStudents] = student;
 		this.numStudents++;
 	}

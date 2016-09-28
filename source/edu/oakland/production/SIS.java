@@ -34,11 +34,11 @@ public class SIS {
 	}
 
 	/**
-	 * Retrieve a student from the SIS.
+	 * Retrieve a student from the SIS based on Grizzly ID.
 	 *
 	 * @param GID The student's Grizzly ID.
 	 */
-	public Student getStudent(int GID) {
+	public Student getStudentByID(int GID) {
 		for (Student s : students) {
 			if (s == null) {
 				continue;

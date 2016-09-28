@@ -9,10 +9,10 @@ public class Testing {
 		SIS sis = new SIS();
 
 
-		sis.addStudent(new Student(1));
-		sis.addStudent(new Student(123));
-		sis.addStudent(new Student(321));
-		sis.addStudent(new Student(54));
+		sis.addStudent(new UnderGraduate(1));
+		sis.addStudent(new UnderGraduate(123));
+		sis.addStudent(new UnderGraduate(321));
+		sis.addStudent(new UnderGraduate(54));
 
 
 		System.out.println(sis.getStudentByID(2));

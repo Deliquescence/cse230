@@ -1,26 +1,25 @@
 package edu.oakland.production;
 
-import edu.oakland.helper.Student;
 import java.util.Arrays;
 
 public class SIS {
 
-	private Student[] students;
+	private UnderGraduate[] students;
 	private int numStudents = 0;
 
 	/**
 	 * Create a new SIS.
 	 */
 	public SIS() {
-		students = new Student[1];
+		students = new UnderGraduate[1];
 	}
 
 	/**
 	 * Add a student to the SIS.
 	 *
-	 * @param student The {@link Student} to add.
+	 * @param student The student to add.
 	 */
-	public void addStudent(Student student) {
+	public void addStudent(UnderGraduate student) {
 		if (this.students.length <= this.numStudents) { //No space left
 			this.students = Arrays.copyOf(this.students, numStudents + 1);
 		}
@@ -33,8 +32,8 @@ public class SIS {
 	 *
 	 * @param GID The student's Grizzly ID.
 	 */
-	public Student getStudentByID(int GID) {
-		for (Student s : students) {
+	public UnderGraduate getStudentByID(int GID) {
+		for (UnderGraduate s : students) {
 			if (s == null) {
 				continue;
 			}

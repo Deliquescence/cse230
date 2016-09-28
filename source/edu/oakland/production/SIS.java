@@ -40,6 +40,9 @@ public class SIS {
 	 */
 	public Student getStudent(int GID) {
 		for (Student s : students) {
+			if (s == null) {
+				continue;
+			}
 			if (s.getGrizzlyID() == GID) {
 				return s;
 			}

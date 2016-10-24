@@ -1,6 +1,9 @@
-#Java compite and run
-javac -d bin -sourcepath source source\edu\oakland\
+#Java compile and run
+javac -d bin -sourcepath source -classpath c:\junit3.8.2\junit.jar source\edu\oakland\
 java -classpath bin edu.oakland.
+
+#Test
+java -classpath c:\junit3.8.2\junit.jar;bin; junit.swingui.TestRunner edu.oakland.test.
 
 #Create homework zip
 #From HW directory, not root

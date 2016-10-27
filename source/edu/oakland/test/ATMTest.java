@@ -15,9 +15,7 @@ public class ATMTest extends TestCase {
 	private ATM atm;
 
 	public void setUp() {
-		bankDB = new BankDB();
-		bankDB.setBalance(STARTING_BALANCE);
-
+		bankDB = new BankDB(STARTING_BALANCE);
 		atm = new ATM(bankDB);
 	}
 

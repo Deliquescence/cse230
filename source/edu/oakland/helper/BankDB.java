@@ -6,7 +6,7 @@ public class BankDB {
 
 	public BankDB(int startingBalance) {
 
-		balance = bal;
+		balance = startingBalance;
 	}
 
 	public boolean fundsAvailable(int amount) {

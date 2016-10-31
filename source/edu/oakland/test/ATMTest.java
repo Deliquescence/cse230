@@ -5,7 +5,6 @@ import edu.oakland.production.*;
 
 import junit.framework.*;
 
-
 public class ATMTest extends TestCase {
 
 	private final int STARTING_BALANCE = 500;
@@ -21,6 +20,7 @@ public class ATMTest extends TestCase {
 
 	public void testATM() {
 		System.out.println("Attempting to withdraw " + WITHDRAW_AMOUNT);
-		atm.submitAmount(WITHDRAW_AMOUNT);
+		boolean result = atm.submitAmount(WITHDRAW_AMOUNT);
+		assertTrue(result);
 	}
 }

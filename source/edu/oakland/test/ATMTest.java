@@ -8,7 +8,7 @@ import junit.framework.*;
 public class ATMTest extends TestCase {
 
 	private final int STARTING_BALANCE = 500;
-	private final int WITHDRAW_AMOUNT = 500;
+	private final int WITHDRAW_AMOUNT = 1500;
 
 	private BankDB bankDB;
 	private ATM atm;

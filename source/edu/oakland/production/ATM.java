@@ -11,8 +11,8 @@ public class ATM {
 	}
 
 	public boolean submitAmount(int amount) {
-		if (bankDB.fundsAvailable(amount)) {
-			return bankDB.withdraw(amount);
+		if (bankDB.checkFundsAvailable(amount)) {
+			return bankDB.issueFunds(amount);
 		} else {
 			return false;
 		}

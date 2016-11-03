@@ -9,13 +9,13 @@ public class BankDB {
 		balance = startingBalance;
 	}
 
-	public boolean fundsAvailable(int amount) {
+	public boolean checkFundsAvailable(int amount) {
 
 		return amount <= balance;
 	}
 
-	public boolean withdraw(int amount) {
-		if (fundsAvailable(amount)) {
+	public boolean issueFunds(int amount) {
+		if (checkFundsAvailable(amount)) {
 
 			balance -= amount;
 

@@ -9,6 +9,11 @@ public class BankDB {
 		balance = startingBalance;
 	}
 
+	public void setBalance(int bal) {
+
+		this.balance = bal;
+	}
+
 	public boolean checkFundsAvailable(int amount) {
 
 		return amount <= balance;

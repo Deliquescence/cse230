@@ -73,10 +73,10 @@ public class SISGUI extends JFrame {
 		layoutBottom.setAutoCreateContainerGaps(true);
 
 
-		inText_GID=new JTextField();
-		inText_Name=new JTextField();
-		inText_Status=new JTextField();
-		inText_Progress=new JTextField();
+		inText_GID = new JTextField();
+		inText_Name = new JTextField();
+		inText_Status = new JTextField();
+		inText_Progress = new JTextField();
 
 		inLabel_GID = new JLabel("gid");
 		inLabel_Name = new JLabel("name");
@@ -84,7 +84,7 @@ public class SISGUI extends JFrame {
 		inLabel_Progress = new JLabel("progress");
 
 
-		layoutTop.setHorizontalGroup(
+		layoutTop.setHorizontalGroup (
 			layoutTop.createSequentialGroup()
 				//Text Field column
 				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.BASELINE)

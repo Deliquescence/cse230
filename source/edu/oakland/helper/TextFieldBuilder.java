@@ -16,7 +16,9 @@ public class TextFieldBuilder extends JTextField {
 						  "printName", "printStatus", "printProgress", "enterMajor", "printMajor"};
 
 		for (String s : strings) {
-			textFields.put(s, new JTextField(LENGTH));
+			JTextField tf = new JTextField(LENGTH);
+			tf.setMaximumSize(new Dimension(120,20));
+			textFields.put(s, tf);
 		}
 	}
 

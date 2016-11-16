@@ -1,6 +1,6 @@
 package edu.oakland.production;
 
-// import edu.oakland.helper.*;
+import edu.oakland.helper.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -54,6 +54,24 @@ public class SISGUI extends JFrame {
 	private void initGUI() {
 		Container contentPane = getContentPane();
 
+		//Create builders
+		LabelBuilder lb = new LabelBuilder();
+		TextFieldBuilder tb = new TextFieldBuilder();
+
+		//Assign variables to widgets from builders
+		inText_GID = tb.getTextField("enterId");
+		inText_Name = tb.getTextField("enterName");
+		inText_Major = tb.getTextField("enterMajor");
+		inText_Status = tb.getTextField("enterStatus");
+		inText_Progress = tb.getTextField("enterProgress");
+
+		inLabel_GID = lb.getInputGrizzlyID();
+		inLabel_Name = lb.getInputName();
+		inLabel_Major = lb.getInputMajor();
+		inLabel_Status = lb.getInputStatus();
+		inLabel_Progress = lb.getInputProgress();
+
+
 		//Create panels
 		JPanel panelTop = new JPanel();
 		JPanel panelBottom = new JPanel();
@@ -72,31 +90,38 @@ public class SISGUI extends JFrame {
 		layoutBottom.setAutoCreateGaps(true);
 		layoutBottom.setAutoCreateContainerGaps(true);
 
-
-		inText_GID = new JTextField();
-		inText_Name = new JTextField();
-		inText_Status = new JTextField();
-		inText_Progress = new JTextField();
-
-		inLabel_GID = new JLabel("gid");
-		inLabel_Name = new JLabel("name");
-		inLabel_Status = new JLabel("status");
-		inLabel_Progress = new JLabel("progress");
-
-
 		layoutTop.setHorizontalGroup (
 			layoutTop.createSequentialGroup()
 				//Text Field column
-				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.BASELINE)
+				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addComponent(inText_GID)
 					.addComponent(inText_Name)
+					.addComponent(inText_Major)
 					.addComponent(inText_Status)
 					.addComponent(inText_Progress)
 				)
 				//Label column
-				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.BASELINE)
+				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addComponent(inLabel_GID)
 					.addComponent(inLabel_Name)
+					.addComponent(inLabel_Major)
+					.addComponent(inLabel_Status)
+					.addComponent(inLabel_Progress)
+				)
+		);
+		layoutTop.setVerticalGroup (
+			layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(layoutTop.createSequentialGroup()
+					.addComponent(inText_GID)
+					.addComponent(inText_Name)
+					.addComponent(inText_Major)
+					.addComponent(inText_Status)
+					.addComponent(inText_Progress)
+				)
+				.addGroup(layoutTop.createSequentialGroup()
+					.addComponent(inLabel_GID)
+					.addComponent(inLabel_Name)
+					.addComponent(inLabel_Major)
 					.addComponent(inLabel_Status)
 					.addComponent(inLabel_Progress)
 				)

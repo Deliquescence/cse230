@@ -24,8 +24,10 @@ public class LabelBuilder {
 		labelCardStatusHeader = new JLabel("Card Status");
 		labelCardStatus = new JLabel("");
 
-		labelReqAccepted.setBackground(Colors.GREEN);
-		labelReqDenied.setBackground(Colors.RED);
+		labelReqAccepted.setBackground(Color.GREEN);
+		labelReqDenied.setBackground(Color.RED);
+		labelReqAccepted.setOpaque(true);
+		labelReqDenied.setOpaque(true);
 	}
 
 	public JLabel getLabelAccountBalance() {

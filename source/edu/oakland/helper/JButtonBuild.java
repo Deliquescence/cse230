@@ -5,18 +5,19 @@ import javax.swing.*;
 
 public class JButtonBuild extends JButton {
 
-	JButton createStudentRecord;
-	JButton storeStudentRecord;
-	JButton retrieveStudentRecord;
-	JButton clearAllDataFields;
-	JButton printRetrievedRecord;
+	private JButton createStudentRecord;
+	private JButton storeStudentRecord;
+	private JButton retrieveStudentRecordByName;
+	private JButton retrieveStudentRecordByGID;
+	private JButton clearAllDataFields;
+	private JButton printRetrievedRecord;
 
 	//constructor
 	public JButtonBuild() {
 		//create JButtons
 		createStudentRecord = new JButton("Create Student Record");
-		storeStudentRecord = new JButton("Store Student Record");
-		retrieveStudentRecord = new JButton("Retrieve Student Record");
+		retrieveStudentRecordByName = new JButton("Retrieve Student Record by Name");
+		retrieveStudentRecordByGID = new JButton("Retrieve Student Record by GID");
 		clearAllDataFields = new JButton("Clear All Data Fields");
 		printRetrievedRecord = new JButton("Print Retrieved Record");
 	}
@@ -24,10 +25,6 @@ public class JButtonBuild extends JButton {
 	//methods to return JButtons
 	public JButton getCreateStudentRecord() {
 		return createStudentRecord;
-	}
-
-	public JButton getStoreStudentRecord() {
-		return storeStudentRecord;
 	}
 
 	public JButton getRetrieveStudentRecord() {

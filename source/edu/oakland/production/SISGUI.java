@@ -44,11 +44,17 @@ public class SISGUI extends JFrame {
 
 	private JButton outButton_Print;
 
+	//private SISManager sis = new SISManager();
+
 	//End of variables
 
 	public SISGUI () {
 
 		initGUI();
+	}
+
+	public void clearAllFields() {
+		tb.clearAllFields();
 	}
 
 	private void initGUI() {
@@ -107,7 +113,7 @@ public class SISGUI extends JFrame {
 					.addComponent(inLabel_Progress)
 				)
 		);
-		
+
 		layoutTop.setVerticalGroup (
 			layoutTop.createSequentialGroup()
 				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -135,5 +141,47 @@ public class SISGUI extends JFrame {
 
 		System.out.println("fdsa");
 		contentPane.add(panelTop);
+	}
+
+	private class CreateRecord implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			private JLabel inLabel_GID;
+			private JLabel inLabel_Name;
+			private JLabel inLabel_Major;
+			private JLabel inLabel_Status;
+			private JLabel inLabel_Progress;
+			try {
+				String status = inLabel_Status.getText();
+				boolean st;
+				if(status.charAt(0) == "t" || status.charAt(0) == "T") {
+					st = true;
+				}
+				else if(status.charAt(0) == "f" || status.charAt(0) == "F") {
+					st = false;
+				}
+				sis.createRecord(inLabel_GID.getText().parseInt(),
+				inLabel_Name.getText(), inLabel_Major.getText(),
+				inLabel_Progress.getText(), st);
+				clearAllFields();
+			}
+			catch(Exception exception) {
+
+			}
+		}
+	}
+
+	private class RetrieveRecord implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			//Retrieve student record (button)
+		}
+	}
+
+	private class ClearFields implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			clearAllFields();
+		}
 	}
 }

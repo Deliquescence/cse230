@@ -3,6 +3,7 @@ package edu.oakland.helper;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
+import java.util.Collection;
 import javax.swing.*;
 
 public class TextFieldBuilder extends JTextField {

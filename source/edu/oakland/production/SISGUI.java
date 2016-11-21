@@ -47,6 +47,11 @@ public class SISGUI extends JFrame {
 
 	private JButton outButton_Print;
 
+	//Variables for widget builders
+	private LabelBuilder lb;
+	private TextFieldBuilder tb;
+	private JButtonBuild bb;
+
 	//Other variables
 	//private SISManager sis = new SISManager();
 
@@ -61,9 +66,9 @@ public class SISGUI extends JFrame {
 
 	private void initGUI() {
 		//Create builders
-		LabelBuilder lb = new LabelBuilder();
-		TextFieldBuilder tb = new TextFieldBuilder();
-		JButtonBuild bb = new JButtonBuild();
+		lb = new LabelBuilder();
+		tb = new TextFieldBuilder();
+		bb = new JButtonBuild();
 
 		//Assign widget variables using builders
 		inText_GID = tb.getTextField("enterId");

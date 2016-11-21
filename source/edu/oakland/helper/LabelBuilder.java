@@ -21,6 +21,11 @@ public class LabelBuilder {
 	private JLabel outputProgress;
 	private JLabel outputMajor;
 
+	private JLabel gc;
+	private JLabel rc;
+	private ImageIcon redCheck;
+	private ImageIcon greenCheck;
+
 	public LabelBuilder() {
 		inputHeader = new JLabel("Data Input");
 		inputGrizzlyID = new JLabel("Grizzly ID");
@@ -36,10 +41,25 @@ public class LabelBuilder {
 		outputProgress = new JLabel("Sat Progress for Degree");
 		outputMajor = new JLabel("Major");
 
+		greenCheck = new ImageIcon("good.jpeg");
+		redCheck = new ImageIcon("bad.jpeg");
+		gc = new JLabel(greenCheck);
+		gc.setVisible(false);
+		rc = new JLabel(redCheck);
+		rc.setVisible(false);
+
 		inputHeader.setFont(new Font(inputHeader.getFont().getName(), Font.BOLD, 16));
 		inputHeader.setHorizontalAlignment(JLabel.CENTER);
 		outputHeader.setFont(new Font(outputHeader.getFont().getName(), Font.BOLD, 16));
 		outputHeader.setHorizontalAlignment(JLabel.CENTER);
+	}
+
+	public JLabel getRc() {
+			return rc;
+	}
+
+	public JLabel getGc() {
+			return gc;
 	}
 
 	public JLabel getInputHeader() {
@@ -65,7 +85,6 @@ public class LabelBuilder {
 	public JLabel getInputProgress() {
 		return inputProgress;
 	}
-
 
 	public JLabel getOutputHeader() {
 		return outputHeader;

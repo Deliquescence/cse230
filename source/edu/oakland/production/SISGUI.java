@@ -33,15 +33,16 @@ public class SISGUI extends JFrame {
 
 	private JTextField outText_GID;
 	private JTextField outText_Name;
+	private JTextField outText_Major;
 	private JTextField outText_Status;
 	private JTextField outText_Progress;
 
 	private JLabel outLabel_Header;
 	private JLabel outLabel_GID;
 	private JLabel outLabel_Name;
+	private JLabel outLabel_Major;
 	private JLabel outLabel_Status;
 	private JLabel outLabel_Progress;
-	private JLabel outLabel_NotFound;
 
 	private JButton outButton_Print;
 
@@ -53,8 +54,6 @@ public class SISGUI extends JFrame {
 	}
 
 	private void initGUI() {
-		Container contentPane = getContentPane();
-
 		//Create builders
 		LabelBuilder lb = new LabelBuilder();
 		TextFieldBuilder tb = new TextFieldBuilder();
@@ -78,11 +77,28 @@ public class SISGUI extends JFrame {
 		inButton_RetrieveByGID = bb.getRetrieveStudentRecordByGID();
 		inButton_RetrieveByName = bb.getRetrieveStudentRecordByName();
 
+		outText_GID = tb.getTextField("printId");
+		outText_Name = tb.getTextField("printName");
+		outText_Major = tb.getTextField("printMajor");
+		outText_Status = tb.getTextField("printStatus");
+		outText_Progress = tb.getTextField("printProgress");
 
-		JSeparator separatorButtons = new JSeparator(SwingConstants.HORIZONTAL);
-		separatorButtons.setMaximumSize(new Dimension(999999,20));
+		outLabel_Header = lb.getOutputHeader();
+		outLabel_GID = lb.getOutputGrizzlyID();
+		outLabel_Name = lb.getOutputName();
+		outLabel_Major = lb.getOutputMajor();
+		outLabel_Status = lb.getOutputStatus();
+		outLabel_Progress = lb.getOutputProgress();
+
+		outButton_Print = bb.getPrintRetrievedRecord();
+
+		JSeparator separatorTopButtons = new JSeparator(SwingConstants.HORIZONTAL);
+		JSeparator separatorBottomButtons = new JSeparator(SwingConstants.HORIZONTAL);
+		separatorTopButtons.setMaximumSize(new Dimension(999999,20));
+		separatorBottomButtons.setMaximumSize(new Dimension(999999,20));
 
 		//Create panels
+		Container contentPane = getContentPane();
 		JPanel panelTop = new JPanel();
 		JPanel panelBottom = new JPanel();
 
@@ -93,6 +109,7 @@ public class SISGUI extends JFrame {
 		//Assign layouts
 		panelTop.setLayout(layoutTop);
 		panelBottom.setLayout(layoutBottom);
+		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.PAGE_AXIS));
 
 		//Configure layouts
 		layoutTop.setAutoCreateGaps(true);
@@ -100,6 +117,7 @@ public class SISGUI extends JFrame {
 		layoutBottom.setAutoCreateGaps(true);
 		layoutBottom.setAutoCreateContainerGaps(true);
 
+		//Begin top horizonal and vertical groups
 		layoutTop.setHorizontalGroup (
 			layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addComponent(inLabel_Header)
@@ -122,7 +140,7 @@ public class SISGUI extends JFrame {
 				)
 				//End input boxes with labels
 
-				.addComponent(separatorButtons)
+				.addComponent(separatorTopButtons)
 				//Buttons
 				.addGroup(layoutTop.createSequentialGroup()
 					.addComponent(inButton_Create)
@@ -156,15 +174,79 @@ public class SISGUI extends JFrame {
 					.addComponent(inLabel_Progress)
 				)
 				//End input boxes with labels
-				.addComponent(separatorButtons)
+				.addComponent(separatorTopButtons)
 				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addComponent(inButton_Create)
 					.addComponent(inButton_RetrieveByGID)
 					.addComponent(inButton_RetrieveByName)
 				)
 		);
+		//End top horizonal and vertical groups
+
+		//Begin bottom horizonal and vertical groups
+		layoutBottom.setHorizontalGroup (
+			layoutBottom.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addComponent(outLabel_Header)
+				//Input boxes with labels
+				.addGroup(layoutBottom.createSequentialGroup()
+					.addGroup(layoutBottom.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(outText_GID)
+						.addComponent(outText_Name)
+						.addComponent(outText_Major)
+						.addComponent(outText_Status)
+						.addComponent(outText_Progress)
+					)
+					.addGroup(layoutBottom.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(outLabel_GID)
+						.addComponent(outLabel_Name)
+						.addComponent(outLabel_Major)
+						.addComponent(outLabel_Status)
+						.addComponent(outLabel_Progress)
+					)
+				)
+				//End input boxes with labels
+
+				.addComponent(separatorBottomButtons)
+				//Buttons
+				.addGroup(layoutBottom.createSequentialGroup()
+					.addComponent(outButton_Print)
+				)
+		);
+
+		layoutBottom.setVerticalGroup (
+			layoutBottom.createSequentialGroup()
+				.addComponent(outLabel_Header)
+				//Begin input boxes with labels
+				.addGroup(layoutBottom.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(outText_GID)
+					.addComponent(outLabel_GID)
+				)
+				.addGroup(layoutBottom.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(outText_Name)
+					.addComponent(outLabel_Name)
+				)
+				.addGroup(layoutBottom.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(outText_Major)
+					.addComponent(outLabel_Major)
+				)
+				.addGroup(layoutBottom.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(outText_Status)
+					.addComponent(outLabel_Status)
+				)
+				.addGroup(layoutBottom.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(outText_Progress)
+					.addComponent(outLabel_Progress)
+				)
+				//End input boxes with labels
+				.addComponent(separatorBottomButtons)
+				.addGroup(layoutBottom.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(outButton_Print)
+				)
+		);
+		//End bottom horizonal and vertical groups
 
 		System.out.println("fdsa");
 		contentPane.add(panelTop);
+		contentPane.add(panelBottom);
 	}
 }

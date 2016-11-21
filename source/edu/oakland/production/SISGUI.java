@@ -287,20 +287,28 @@ public class SISGUI extends JFrame {
 
 		public void actionPerformed(ActionEvent e) {
 			try {
-				String status = inLabel_Status.getText();
+				String status = inText_Status.getText();
 				boolean st;
-				if(status.charAt(0) == "t" || status.charAt(0) == "T") {
+				char firstChar = Character.toLowerCase(status.charAt(0));
+				if (firstChar == 't' || firstChar == 'y') {
 					st = true;
 				}
-				else if(status.charAt(0) == "f" || status.charAt(0) == "F") {
+				else if (firstChar == 'f' || firstChar == 'n') {
 					st = false;
+				} else {
+					//TODO: Decide how to handle input validation
+					throw new java.text.ParseException("Unable to parse status into boolean", 0);
 				}
-				sis.createRecord(inLabel_GID.getText().parseInt(),
-				inLabel_Name.getText(), inLabel_Major.getText(),
-				inLabel_Progress.getText(), st);
+				sis.createRecord (
+					Integer.parseInt(inLabel_GID.getText()),
+					inLabel_Name.getText(),
+					inLabel_Major.getText(),
+					inLabel_Progress.getText(),
+					st
+				);
 				clearAllFields();
 			}
-			catch(Exception exception) {
+			catch (Exception exception) {
 
 			}
 		}

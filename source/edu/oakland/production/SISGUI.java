@@ -57,6 +57,7 @@ public class SISGUI extends JFrame {
 		//Create builders
 		LabelBuilder lb = new LabelBuilder();
 		TextFieldBuilder tb = new TextFieldBuilder();
+		JButtonBuild bb = new JButtonBuild();
 
 		//Assign variables to widgets from builders
 		inText_GID = tb.getTextField("enterId");
@@ -71,6 +72,13 @@ public class SISGUI extends JFrame {
 		inLabel_Status = lb.getInputStatus();
 		inLabel_Progress = lb.getInputProgress();
 
+		inButton_Create = bb.getCreateStudentRecord();
+		inButton_RetrieveByGID = bb.getRetrieveStudentRecordByGID();
+		inButton_RetrieveByName = bb.getRetrieveStudentRecordByName();
+
+
+		JSeparator separatorButtons = new JSeparator(SwingConstants.HORIZONTAL);
+		separatorButtons.setMaximumSize(new Dimension(999999,20));
 
 		//Create panels
 		JPanel panelTop = new JPanel();
@@ -91,23 +99,33 @@ public class SISGUI extends JFrame {
 		layoutBottom.setAutoCreateContainerGaps(true);
 
 		layoutTop.setHorizontalGroup (
-			layoutTop.createSequentialGroup()
-				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
-					.addComponent(inText_GID)
-					.addComponent(inText_Name)
-					.addComponent(inText_Major)
-					.addComponent(inText_Status)
-					.addComponent(inText_Progress)
+			layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
+				//Input boxes with labels
+				.addGroup(layoutTop.createSequentialGroup()
+					.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(inText_GID)
+						.addComponent(inText_Name)
+						.addComponent(inText_Major)
+						.addComponent(inText_Status)
+						.addComponent(inText_Progress)
+					)
+					.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(inLabel_GID)
+						.addComponent(inLabel_Name)
+						.addComponent(inLabel_Major)
+						.addComponent(inLabel_Status)
+						.addComponent(inLabel_Progress)
+					)
 				)
-				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
-					.addComponent(inLabel_GID)
-					.addComponent(inLabel_Name)
-					.addComponent(inLabel_Major)
-					.addComponent(inLabel_Status)
-					.addComponent(inLabel_Progress)
+				.addComponent(separatorButtons)
+				//Buttons
+				.addGroup(layoutTop.createSequentialGroup()
+					.addComponent(inButton_Create)
+					.addComponent(inButton_RetrieveByGID)
+					.addComponent(inButton_RetrieveByName)
 				)
 		);
-		
+
 		layoutTop.setVerticalGroup (
 			layoutTop.createSequentialGroup()
 				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -130,7 +148,12 @@ public class SISGUI extends JFrame {
 					.addComponent(inText_Progress)
 					.addComponent(inLabel_Progress)
 				)
-
+				.addComponent(separatorButtons)
+				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(inButton_Create)
+					.addComponent(inButton_RetrieveByGID)
+					.addComponent(inButton_RetrieveByName)
+				)
 		);
 
 		System.out.println("fdsa");

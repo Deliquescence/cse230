@@ -10,6 +10,7 @@ public class SISGUI extends JFrame {
 	/*
 	 * Variables for widgets in input half
 	 */
+
 	private JTextField inText_GID;
 	private JTextField inText_Name;
 	private JTextField inText_Major;
@@ -46,17 +47,16 @@ public class SISGUI extends JFrame {
 
 	private JButton outButton_Print;
 
+	//Other variables
 	//private SISManager sis = new SISManager();
 
-	//End of variables
+	/*
+	 * End of variables
+	 */
 
 	public SISGUI () {
 
 		initGUI();
-	}
-
-	public void clearAllFields() {
-		tb.clearAllFields();
 	}
 
 	private void initGUI() {
@@ -65,7 +65,7 @@ public class SISGUI extends JFrame {
 		TextFieldBuilder tb = new TextFieldBuilder();
 		JButtonBuild bb = new JButtonBuild();
 
-		//Assign variables to widgets from builders
+		//Assign widget variables using builders
 		inText_GID = tb.getTextField("enterId");
 		inText_Name = tb.getTextField("enterName");
 		inText_Major = tb.getTextField("enterMajor");
@@ -97,8 +97,12 @@ public class SISGUI extends JFrame {
 		outLabel_Progress = lb.getOutputProgress();
 
 		outButton_Print = bb.getPrintRetrievedRecord();
+		//End builder -> widget assignment
 
+		//Create separators to make things look nice
+		//Between input text fields and buttons
 		JSeparator separatorTopButtons = new JSeparator(SwingConstants.HORIZONTAL);
+		//Between output text fields and buttons
 		JSeparator separatorBottomButtons = new JSeparator(SwingConstants.HORIZONTAL);
 		separatorTopButtons.setMaximumSize(new Dimension(999999,20));
 		separatorBottomButtons.setMaximumSize(new Dimension(999999,20));
@@ -108,7 +112,7 @@ public class SISGUI extends JFrame {
 		JPanel panelTop = new JPanel();
 		JPanel panelBottom = new JPanel();
 
-		//Create layouts
+		//Create GroupLayouts
 		GroupLayout layoutTop = new GroupLayout(panelTop);
 		GroupLayout layoutBottom = new GroupLayout(panelBottom);
 
@@ -117,13 +121,16 @@ public class SISGUI extends JFrame {
 		panelBottom.setLayout(layoutBottom);
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.PAGE_AXIS));
 
-		//Configure layouts
+		//Configure GroupLayouts
 		layoutTop.setAutoCreateGaps(true);
 		layoutTop.setAutoCreateContainerGaps(true);
 		layoutBottom.setAutoCreateGaps(true);
 		layoutBottom.setAutoCreateContainerGaps(true);
 
-		//Begin top horizonal and vertical groups
+
+		/*
+		 * Begin horizonal and vertical groups for top half
+		 */
 		layoutTop.setHorizontalGroup (
 			layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addComponent(inLabel_Header)
@@ -187,9 +194,11 @@ public class SISGUI extends JFrame {
 					.addComponent(inButton_RetrieveByName)
 				)
 		);
-		//End top horizonal and vertical groups
-
-		//Begin bottom horizonal and vertical groups
+		/*
+		 * End horizonal and vertical groups for top half
+		 *
+		 * Begin horizonal and vertical groups for bottom half
+		 */
 		layoutBottom.setHorizontalGroup (
 			layoutBottom.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addComponent(outLabel_Header)
@@ -249,12 +258,25 @@ public class SISGUI extends JFrame {
 					.addComponent(outButton_Print)
 				)
 		);
-		//End bottom horizonal and vertical groups
+		/*
+		 * End horizonal and vertical groups for bottom half
+		 */
 
-		System.out.println("fdsa");
+		//Add halves to the frame
 		contentPane.add(panelTop);
 		contentPane.add(panelBottom);
+
+		System.out.println("GUI Initialized.");
 	}
+
+	/*
+	 * Clear all text fields, setting text to nothing.
+	 * Affects both input and output fields.
+	 */
+	public void clearAllFields() {
+		tb.clearAllFields();
+	}
+
 
 	private class CreateRecord implements ActionListener {
 

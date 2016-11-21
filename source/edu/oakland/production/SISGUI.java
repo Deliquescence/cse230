@@ -10,13 +10,13 @@ public class SISGUI extends JFrame {
 	/*
 	 * Variables for widgets in input half
 	 */
-
 	private JTextField inText_GID;
 	private JTextField inText_Name;
 	private JTextField inText_Major;
 	private JTextField inText_Status;
 	private JTextField inText_Progress;
 
+	private JLabel inLabel_Header;
 	private JLabel inLabel_GID;
 	private JLabel inLabel_Name;
 	private JLabel inLabel_Major;
@@ -36,6 +36,7 @@ public class SISGUI extends JFrame {
 	private JTextField outText_Status;
 	private JTextField outText_Progress;
 
+	private JLabel outLabel_Header;
 	private JLabel outLabel_GID;
 	private JLabel outLabel_Name;
 	private JLabel outLabel_Status;
@@ -66,6 +67,7 @@ public class SISGUI extends JFrame {
 		inText_Status = tb.getTextField("enterStatus");
 		inText_Progress = tb.getTextField("enterProgress");
 
+		inLabel_Header = lb.getInputHeader();
 		inLabel_GID = lb.getInputGrizzlyID();
 		inLabel_Name = lb.getInputName();
 		inLabel_Major = lb.getInputMajor();
@@ -100,6 +102,7 @@ public class SISGUI extends JFrame {
 
 		layoutTop.setHorizontalGroup (
 			layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addComponent(inLabel_Header)
 				//Input boxes with labels
 				.addGroup(layoutTop.createSequentialGroup()
 					.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -117,6 +120,8 @@ public class SISGUI extends JFrame {
 						.addComponent(inLabel_Progress)
 					)
 				)
+				//End input boxes with labels
+
 				.addComponent(separatorButtons)
 				//Buttons
 				.addGroup(layoutTop.createSequentialGroup()
@@ -128,6 +133,8 @@ public class SISGUI extends JFrame {
 
 		layoutTop.setVerticalGroup (
 			layoutTop.createSequentialGroup()
+				.addComponent(inLabel_Header)
+				//Begin input boxes with labels
 				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addComponent(inText_GID)
 					.addComponent(inLabel_GID)
@@ -148,6 +155,7 @@ public class SISGUI extends JFrame {
 					.addComponent(inText_Progress)
 					.addComponent(inLabel_Progress)
 				)
+				//End input boxes with labels
 				.addComponent(separatorButtons)
 				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addComponent(inButton_Create)

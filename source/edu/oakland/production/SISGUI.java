@@ -146,11 +146,6 @@ public class SISGUI extends JFrame {
 	private class CreateRecord implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			private JLabel inLabel_GID;
-			private JLabel inLabel_Name;
-			private JLabel inLabel_Major;
-			private JLabel inLabel_Status;
-			private JLabel inLabel_Progress;
 			try {
 				String status = inLabel_Status.getText();
 				boolean st;

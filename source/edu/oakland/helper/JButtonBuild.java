@@ -3,10 +3,9 @@ package edu.oakland.helper;
 import java.awt.*;
 import javax.swing.*;
 
-public class JButtonBuild extends JButton {
+public class JButtonBuild {
 
 	private JButton createStudentRecord;
-	private JButton storeStudentRecord;
 	private JButton retrieveStudentRecordByName;
 	private JButton retrieveStudentRecordByGID;
 	private JButton clearAllDataFields;
@@ -27,8 +26,12 @@ public class JButtonBuild extends JButton {
 		return createStudentRecord;
 	}
 
-	public JButton getRetrieveStudentRecord() {
-		return retrieveStudentRecord;
+	public JButton getRetrieveStudentRecordByName() {
+		return retrieveStudentRecordByName;
+	}
+
+	public JButton getRetrieveStudentRecordByGID() {
+		return retrieveStudentRecordByGID;
 	}
 
 	public JButton getClearAllDataFields() {

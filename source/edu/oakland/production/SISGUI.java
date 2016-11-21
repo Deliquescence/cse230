@@ -92,7 +92,6 @@ public class SISGUI extends JFrame {
 
 		layoutTop.setHorizontalGroup (
 			layoutTop.createSequentialGroup()
-				//Text Field column
 				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addComponent(inText_GID)
 					.addComponent(inText_Name)
@@ -100,7 +99,6 @@ public class SISGUI extends JFrame {
 					.addComponent(inText_Status)
 					.addComponent(inText_Progress)
 				)
-				//Label column
 				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addComponent(inLabel_GID)
 					.addComponent(inLabel_Name)
@@ -109,22 +107,30 @@ public class SISGUI extends JFrame {
 					.addComponent(inLabel_Progress)
 				)
 		);
+		
 		layoutTop.setVerticalGroup (
-			layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(layoutTop.createSequentialGroup()
+			layoutTop.createSequentialGroup()
+				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addComponent(inText_GID)
-					.addComponent(inText_Name)
-					.addComponent(inText_Major)
-					.addComponent(inText_Status)
-					.addComponent(inText_Progress)
-				)
-				.addGroup(layoutTop.createSequentialGroup()
 					.addComponent(inLabel_GID)
+				)
+				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(inText_Name)
 					.addComponent(inLabel_Name)
+				)
+				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(inText_Major)
 					.addComponent(inLabel_Major)
+				)
+				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(inText_Status)
 					.addComponent(inLabel_Status)
+				)
+				.addGroup(layoutTop.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(inText_Progress)
 					.addComponent(inLabel_Progress)
 				)
+
 		);
 
 		System.out.println("fdsa");

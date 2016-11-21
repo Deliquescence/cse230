@@ -30,4 +30,11 @@ public class TextFieldBuilder extends JTextField {
 
 		return null;
 	}
+
+	public void clearAllFields() {
+		Collection<JTextField> fields = textFields.values();
+		for(JTextField f : fields) {
+			f.setText("");
+		}
+	}
 }

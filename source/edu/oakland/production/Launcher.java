@@ -17,7 +17,7 @@ public class Launcher {
 
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gui.setTitle("SIS User Interface");
-		gui.setSize(500, 500);
+		gui.setSize(700, 400);
 
 		gui.setVisible(true);
 	}

@@ -53,7 +53,7 @@ public class SISGUI extends JFrame {
 	private JButtonBuild bb;
 
 	//Other variables
-	//private SISManager sis = new SISManager();
+	private SISManager sis = new SISManager();
 
 	/*
 	 * End of variables
@@ -109,8 +109,8 @@ public class SISGUI extends JFrame {
 		JSeparator separatorTopButtons = new JSeparator(SwingConstants.HORIZONTAL);
 		//Between output text fields and buttons
 		JSeparator separatorBottomButtons = new JSeparator(SwingConstants.HORIZONTAL);
-		separatorTopButtons.setMaximumSize(new Dimension(999999,20));
-		separatorBottomButtons.setMaximumSize(new Dimension(999999,20));
+		separatorTopButtons.setMaximumSize(new Dimension(999999, 10));
+		separatorBottomButtons.setMaximumSize(new Dimension(999999, 10));
 
 		//Create panels
 		Container contentPane = getContentPane();
@@ -288,24 +288,25 @@ public class SISGUI extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			try {
 				String status = inText_Status.getText();
-				boolean st;
-				char firstChar = Character.toLowerCase(status.charAt(0));
-				if (firstChar == 't' || firstChar == 'y') {
-					st = true;
-				}
-				else if (firstChar == 'f' || firstChar == 'n') {
-					st = false;
-				} else {
-					//TODO: Decide how to handle input validation
-					throw new java.text.ParseException("Unable to parse status into boolean", 0);
-				}
+				// boolean st;
+				// char firstChar = Character.toLowerCase(status.charAt(0));
+				// if (firstChar == 't' || firstChar == 'y') {
+				// 	st = true;
+				// }
+				// else if (firstChar == 'f' || firstChar == 'n') {
+				// 	st = false;
+				// } else {
+				// 	//TODO: Decide how to handle input validation
+				// 	throw new java.text.ParseException("Unable to parse status into boolean", 0);
+				// }
 				sis.createRecord (
-					Integer.parseInt(inLabel_GID.getText()),
+					inLabel_GID.getText(),
 					inLabel_Name.getText(),
 					inLabel_Major.getText(),
 					inLabel_Progress.getText(),
-					st
+					status
 				);
+				sis.storeRecord();
 				clearAllFields();
 			}
 			catch (Exception exception) {

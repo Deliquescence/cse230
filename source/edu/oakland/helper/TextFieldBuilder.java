@@ -19,6 +19,11 @@ public class TextFieldBuilder extends JTextField {
 		for (String s : strings) {
 			JTextField tf = new JTextField(LENGTH);
 			tf.setMaximumSize(new Dimension(120,20));
+
+			if (s.contains("print")) {
+				tf.setEditable(false);
+			}
+
 			textFields.put(s, tf);
 		}
 	}

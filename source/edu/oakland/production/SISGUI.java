@@ -267,6 +267,12 @@ public class SISGUI extends JFrame {
 		 * End horizonal and vertical groups for bottom half
 		 */
 
+		//Add action listeners
+		inButton_Create.addActionListener(new CreateRecord());
+		inButton_RetrieveByGID.addActionListener(new RetrieveRecord());
+		inButton_RetrieveByName.addActionListener(new RetrieveRecord());
+		outButton_Print.addActionListener(new ClearFields());
+
 		//Add halves to the frame
 		contentPane.add(panelTop);
 		contentPane.add(panelBottom);
@@ -319,14 +325,17 @@ public class SISGUI extends JFrame {
 
 		public void actionPerformed(ActionEvent e) {
 			StudentRecord s;
-			String idString = inLabel_GID.getText();
-			String nameString = inLabel_Name.getText();
-			if(idString != "") {
-				s = sis.retrieveByID(idString); //Retrieve record
+			if (e.getSource() == inButton_RetrieveByGID) {
+				String id = JOptionPane.showInputDialog("Enter the ID");
+				s = sis.retrieveByID(id); //Retrieve record
+			} else if (e.getSource() == inButton_RetrieveByName) {
+				String name = JOptionPane.showInputDialog("Enter the name");
+				s = sis.retrieveByName(name); //Retrieve record
+			} else {
+				//Event not sourced from one of our buttons
+				System.out.println("Help!"); //(I need sombody)
 			}
-			else if (nameString != "") {
-				s = sis.retrieveByName(nameString); //Retrieve record
-			}
+
 			clearAllFields();
 			outText_GID.setText(s.getGrizzlyID());
 			outText_Name.setText(s.getName());

@@ -33,6 +33,7 @@ public class SISGUI extends JFrame {
 
 	private JTextField outText_GID;
 	private JTextField outText_Name;
+	private JTextField outText_Major;
 	private JTextField outText_Status;
 	private JTextField outText_Progress;
 
@@ -149,10 +150,10 @@ public class SISGUI extends JFrame {
 			try {
 				String status = inLabel_Status.getText();
 				boolean st;
-				if(status.charAt(0) == "t" || status.charAt(0) == "T") {
+				if(status.charAt(0) == 't' || status.charAt(0) == 'T') {
 					st = true;
 				}
-				else if(status.charAt(0) == "f" || status.charAt(0) == "F") {
+				else if(status.charAt(0) == 'f' || status.charAt(0) == 'F') {
 					st = false;
 				}
 				sis.createRecord(inLabel_GID.getText().parseInt(),
@@ -169,7 +170,21 @@ public class SISGUI extends JFrame {
 	private class RetrieveRecord implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			//Retrieve student record (button)
+			StudentRecord s;
+			String idString = inLabel_GID.getText();
+			String nameString = inLabel_Name.getText();
+			if(idString != '') {
+				s = sis.retrieveGUIById(idString.parseInt()); //Retrieve record
+			}
+			else if(nameString != '') {
+				s = sis.retrieveGUIByName(nameString); //Retrieve record
+			}
+			clearAllFields();
+			outText_GID.setText(s.getGrizzlyID());
+			outText_Name.setText(s.getName());
+			outText_Status.setText(s.getStudentType()); //grad under
+			outText_Progress.setText(s.getMajorStandingAchieved()); // True/False?
+			outText_Major.setText(s.getMajor());
 		}
 	}
 

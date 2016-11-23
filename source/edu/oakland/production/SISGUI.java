@@ -271,7 +271,7 @@ public class SISGUI extends JFrame {
 		inButton_Create.addActionListener(new CreateRecord());
 		inButton_RetrieveByGID.addActionListener(new RetrieveRecord());
 		inButton_RetrieveByName.addActionListener(new RetrieveRecord());
-		outButton_Print.addActionListener(new ClearFields());
+		outButton_Print.addActionListener(new PrintFields());
 
 		//Add halves to the frame
 		contentPane.add(panelTop);
@@ -349,6 +349,18 @@ public class SISGUI extends JFrame {
 
 		public void actionPerformed(ActionEvent e) {
 			clearAllFields();
+		}
+	}
+
+	private class PrintFields implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+
+			System.out.println(outText_GID.getText());
+			System.out.println(outText_Name.getText());
+			System.out.println(outText_Major.getText());
+			System.out.println(outText_Status.getText());
+			System.out.println(outText_Progress.getText());
 		}
 	}
 }

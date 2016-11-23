@@ -333,7 +333,7 @@ public class SISGUI extends JFrame {
 				s = sis.retrieveByName(name); //Retrieve record
 			} else {
 				//Event not sourced from one of our buttons
-				System.out.println("Help!"); //(I need sombody)
+				System.out.println("Help!"); //(I need somebody)
 			}
 
 			clearAllFields();

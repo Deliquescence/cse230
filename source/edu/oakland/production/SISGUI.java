@@ -314,6 +314,9 @@ public class SISGUI extends JFrame {
 				);
 				sis.storeRecord();
 				clearAllFields();
+
+				JOptionPane.showMessageDialog(null, "Successfully stored!",
+					"Success", JOptionPane.INFORMATION_MESSAGE);
 			}
 			catch (Exception exception) {
 
@@ -337,6 +340,11 @@ public class SISGUI extends JFrame {
 			}
 
 			clearAllFields();
+			if (s == null) {
+				JOptionPane.showMessageDialog(null, "Cannot find record with that information!",
+					"Cannot find record", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 			outText_GID.setText(s.getGrizzlyID());
 			outText_Name.setText(s.getName());
 			outText_Status.setText(s.getStudentType()); //grad under

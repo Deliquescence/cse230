@@ -318,7 +318,21 @@ public class SISGUI extends JFrame {
 	private class RetrieveRecord implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			//Retrieve student record (button)
+			StudentRecord s;
+			String idString = inLabel_GID.getText();
+			String nameString = inLabel_Name.getText();
+			if(idString != "") {
+				s = sis.retrieveByID(idString); //Retrieve record
+			}
+			else if (nameString != "") {
+				s = sis.retrieveByName(nameString); //Retrieve record
+			}
+			clearAllFields();
+			outText_GID.setText(s.getGrizzlyID());
+			outText_Name.setText(s.getName());
+			outText_Status.setText(s.getStudentType()); //grad under
+			outText_Progress.setText(s.getMajorStandingAchieved()); // True/False?
+			outText_Major.setText(s.getMajor());
 		}
 	}
 

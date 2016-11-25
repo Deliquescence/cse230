@@ -293,15 +293,11 @@ public class SISGUI extends JFrame {
 
 		public void actionPerformed(ActionEvent e) {
 			try {
-				String status = inText_Progress.getText();
-				 String st = "false";
-				 char firstChar = Character.toLowerCase(status.charAt(0));
-				 if (firstChar == 't' || firstChar == 'y') {
-				 	st = "true";
-				 }
-				 else if (firstChar == 'f' || firstChar == 'n') {
-				 	st = "false";
-				 }
+				String st = "false";
+				char firstChar = Character.toLowerCase(inText_Progress.getText().charAt(0));
+				if (firstChar == 't' || firstChar == 'y') {
+					st = "true";
+				}
 				sis.createRecord (
 					inText_GID.getText(),
 					inText_Name.getText(),
@@ -311,14 +307,13 @@ public class SISGUI extends JFrame {
 				);
 				sis.storeRecord();
 				clearAllFields();
-				
+
 				JOptionPane.showMessageDialog(null, "Successfully stored!",
 					"Success", JOptionPane.INFORMATION_MESSAGE);
 			}
 			catch (Exception exception) {
 				JOptionPane.showMessageDialog(null, "Please try again",
 					"You have failed!", JOptionPane.ERROR_MESSAGE);
-
 			}
 		}
 	}
@@ -342,14 +337,12 @@ public class SISGUI extends JFrame {
 			if (s == null) {
 				JOptionPane.showMessageDialog(null, "Cannot find record with that information!",
 					"Cannot find record", JOptionPane.ERROR_MESSAGE);
-			return;
+				return;
 			}
-			String GrizzID = Integer.toString(s.getGrizzlyID()); // Quick Fix to converte Int to String
-			outText_GID.setText(GrizzID);
+			outText_GID.setText("" + s.getGrizzlyID());
 			outText_Name.setText(s.getName());
-			outText_Status.setText(s.getStudentType()); //grad under
-			String MajorStandAch = String.valueOf(s.getMajorStandingAchieved());
-			outText_Progress.setText(MajorStandAch); // True/False?
+			outText_Status.setText(s.getStudentType()); //grad or undergrad
+			outText_Progress.setText("" + s.getMajorStandingAchieved()); // True/False
 			outText_Major.setText(s.getMajor());
 		}
 	}
@@ -365,11 +358,11 @@ public class SISGUI extends JFrame {
 
 		public void actionPerformed(ActionEvent e) {
 
-			System.out.println(outText_GID.getText());
-			System.out.println(outText_Name.getText());
-			System.out.println(outText_Major.getText());
-			System.out.println(outText_Status.getText());
-			System.out.println(outText_Progress.getText());
+			System.out.println("GID:          " + outText_GID.getText());
+			System.out.println("Name:         " + outText_Name.getText());
+			System.out.println("Major:        " + outText_Major.getText());
+			System.out.println("Grad status:  " + outText_Status.getText());
+			System.out.println("Sat progress: " + outText_Progress.getText());
 		}
 	}
 }

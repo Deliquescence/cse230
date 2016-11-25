@@ -293,32 +293,31 @@ public class SISGUI extends JFrame {
 
 		public void actionPerformed(ActionEvent e) {
 			try {
-				String status = inText_Status.getText();
-				// boolean st;
-				// char firstChar = Character.toLowerCase(status.charAt(0));
-				// if (firstChar == 't' || firstChar == 'y') {
-				// 	st = true;
-				// }
-				// else if (firstChar == 'f' || firstChar == 'n') {
-				// 	st = false;
-				// } else {
-				// 	//TODO: Decide how to handle input validation
-				// 	throw new java.text.ParseException("Unable to parse status into boolean", 0);
-				// }
+				String status = inText_Progress.getText();
+				 String st = "false";
+				 char firstChar = Character.toLowerCase(status.charAt(0));
+				 if (firstChar == 't' || firstChar == 'y') {
+				 	st = "true";
+				 }
+				 else if (firstChar == 'f' || firstChar == 'n') {
+				 	st = "false";
+				 }
 				sis.createRecord (
-					inLabel_GID.getText(),
-					inLabel_Name.getText(),
-					inLabel_Major.getText(),
-					inLabel_Progress.getText(),
-					status
+					inText_GID.getText(),
+					inText_Name.getText(),
+					inText_Major.getText(),
+					inText_Status.getText(),
+					st
 				);
 				sis.storeRecord();
 				clearAllFields();
-
+				
 				JOptionPane.showMessageDialog(null, "Successfully stored!",
 					"Success", JOptionPane.INFORMATION_MESSAGE);
 			}
 			catch (Exception exception) {
+				JOptionPane.showMessageDialog(null, "Please try again",
+					"You have failed!", JOptionPane.ERROR_MESSAGE);
 
 			}
 		}
@@ -327,7 +326,7 @@ public class SISGUI extends JFrame {
 	private class RetrieveRecord implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			StudentRecord s;
+			StudentRecord s = null;
 			if (e.getSource() == inButton_RetrieveByGID) {
 				String id = JOptionPane.showInputDialog("Enter the ID");
 				s = sis.retrieveByID(id); //Retrieve record
@@ -336,19 +335,21 @@ public class SISGUI extends JFrame {
 				s = sis.retrieveByName(name); //Retrieve record
 			} else {
 				//Event not sourced from one of our buttons
-				System.out.println("Help!"); //(I need somebody)
+				System.out.println("Help!"); //(I need sombody)
 			}
 
 			clearAllFields();
 			if (s == null) {
 				JOptionPane.showMessageDialog(null, "Cannot find record with that information!",
 					"Cannot find record", JOptionPane.ERROR_MESSAGE);
-				return;
+			return;
 			}
-			outText_GID.setText(s.getGrizzlyID());
+			String GrizzID = Integer.toString(s.getGrizzlyID()); // Quick Fix to converte Int to String
+			outText_GID.setText(GrizzID);
 			outText_Name.setText(s.getName());
 			outText_Status.setText(s.getStudentType()); //grad under
-			outText_Progress.setText(s.getMajorStandingAchieved()); // True/False?
+			String MajorStandAch = String.valueOf(s.getMajorStandingAchieved());
+			outText_Progress.setText(MajorStandAch); // True/False?
 			outText_Major.setText(s.getMajor());
 		}
 	}
